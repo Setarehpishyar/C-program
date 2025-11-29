@@ -1,0 +1,65 @@
+#include <math.h>
+#include <stdio.h>
+int main () {
+    char operator;
+    printf("choose your operator ['+', '-', '/', '*', '^', 'r', 's', 'c']  : ");
+    scanf(" %c", &operator);   // توجه: قبل از %c یک فاصله گذاشتم
+
+double num1, num2;
+printf("enter first number: ");
+scanf("%lf", &num1);
+
+printf("enter second number: ");
+scanf("%lf", &num2);
+
+double result;
+
+switch (operator) {
+    case '+':
+        result = num1 + num2;
+        break;
+
+    case '-':
+        result = num1 - num2;
+        break;
+
+    case '/':
+        result = num1 / num2;
+        break;
+
+    case '*':
+        result = num1 * num2;
+        break;
+        
+        case '^':   // توان
+            result = pow(num1, num2);
+            break;
+
+        case 'r':   // ریشه دوم
+            if (num1 >= 0) {
+                result = sqrt(num1);
+            } else {
+                printf("Error: cannot take sqrt of negative number!\n");
+                return 1;
+            }
+            break;
+
+        case 's':   // سینوس (ورودی به رادیان)
+            result = sin(num1);
+            break;
+
+        case 'c':   // کسینوس (ورودی به رادیان)
+            result = cos(num1);
+            break;
+
+    default:
+        printf("Invalid operator!\n");
+        return 1; // خروج با خطا
+}
+
+// چاپ نتیجه
+printf("Result: %.2lf\n", result);
+
+return 0;
+
+}
